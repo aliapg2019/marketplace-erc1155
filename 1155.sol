@@ -298,52 +298,52 @@ contract Market1155 is ERC1155, Ownable , ReentrancyGuard {
         return items;
     }
 
-    // /* Returns only items a user has listed */
-    // function fetchMyItemsListed() public view returns (MarketItem[] memory) {
-    //     uint256 totalItemCount = _itemId.current();
-    //     uint256 itemCount = 0;
-    //     uint256 currentIndex = 0;
+     /* Returns only items a user has listed */
+     function fetchMyItemsListed() public view returns (MarketItem[] memory) {
+         uint256 totalItemCount = _itemId.current();
+         uint256 itemCount = 0;
+         uint256 currentIndex = 0;
 
-    //     for (uint256 i = 0; i < totalItemCount; i++) {
-    //         if (idToMarketItem[i + 1].seller == msg.sender) {
-    //             itemCount += 1;
-    //         }
-    //     }
+         for (uint256 i = 0; i < totalItemCount; i++) {
+             if (idToMarketItem[i + 1].seller == msg.sender) {
+                 itemCount += 1;
+             }
+         }
 
-    //     MarketItem[] memory items = new MarketItem[](itemCount);
-    //     for (uint256 i = 0; i < totalItemCount; i++) {
-    //         if (idToMarketItem[i + 1].seller == msg.sender) {
-    //             uint256 currentId = i + 1;
-    //             MarketItem storage currentItem = idToMarketItem[currentId];
-    //             items[currentIndex] = currentItem;
-    //             currentIndex += 1;
-    //         }
-    //     }
-    //     return items;
-    // }
+         MarketItem[] memory items = new MarketItem[](itemCount);
+         for (uint256 i = 0; i < totalItemCount; i++) {
+             if (idToMarketItem[i + 1].seller == msg.sender) {
+                 uint256 currentId = i + 1;
+                 MarketItem storage currentItem = idToMarketItem[currentId];
+                 items[currentIndex] = currentItem;
+                 currentIndex += 1;
+             }
+         }
+         return items;
+     }
 
-    // function fetchMyMintNFTs() public view returns(nftMinted [] memory){
-    //    uint256 totalItemCount = _tokenIds.current();
-    //     uint256 tokenCount = 0;
-    //     uint256 currentIndex = 0;
+     function fetchMyMintNFTs() public view returns(nftMinted [] memory){
+        uint256 totalItemCount = _tokenIds.current();
+         uint256 tokenCount = 0;
+         uint256 currentIndex = 0;
 
-    //     for (uint256 i = 0; i < totalItemCount; i++) {
-    //         if (nfts[i + 1].creator == msg.sender) {
-    //             tokenCount += 1;
-    //         }
-    //     }
+         for (uint256 i = 0; i < totalItemCount; i++) {
+             if (nfts[i + 1].creator == msg.sender) {
+                 tokenCount += 1;
+             }
+         }
 
-    //     nftMinted[] memory items = new nftMinted[](tokenCount);
-    //     for (uint256 i = 0; i < totalItemCount; i++) {
-    //         if (nfts[i + 1].creator == msg.sender) {
-    //             uint256 currentId = i + 1;
-    //             nftMinted storage currentItem = nfts[currentId];
-    //             items[currentIndex] = currentItem;
-    //             currentIndex += 1;
-    //         }
-    //     }
-    //     return items;
-    // }
+         nftMinted[] memory items = new nftMinted[](tokenCount);
+         for (uint256 i = 0; i < totalItemCount; i++) {
+             if (nfts[i + 1].creator == msg.sender) {
+                 uint256 currentId = i + 1;
+                 nftMinted storage currentItem = nfts[currentId];
+                 items[currentIndex] = currentItem;
+                 currentIndex += 1;
+             }
+        }
+         return items;
+     }
 //===================================================================================
 }
 
