@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
-//1000000000000000
-//
+
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
@@ -115,12 +114,7 @@ contract Market1155 is ERC1155, Ownable , ReentrancyGuard {
         
         onERC1155Received(_creator, address(this), tokenId , _amount, "");
         _safeTransferFrom(_creator, address(this), tokenId , _amount, "");
-        // nfts[tokenId] = nftMinted(
-        //     tokenId,
-        //     _amount,
-        //     royalityPercent,
-        //     payable(_creator)
-        // ); 
+        
         emit MarketItemCreated(
             newItem,
             tokenId,
@@ -152,7 +146,7 @@ contract Market1155 is ERC1155, Ownable , ReentrancyGuard {
         }
         else
         {
-            // createMarketItem(idToMarketItem[itemId].creator, idToMarketItem[itemId].tokenId , _amount , price);
+           
             _itemId.increment();
             uint256 newItem = _itemId.current();
         
